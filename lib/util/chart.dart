@@ -16,13 +16,14 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!showChart || data.isEmpty) return SizedBox.shrink();
     final Map<String, Color> categoryColors = {
-  'نقل': Color(0xFF2979FF),
-  'طعام': Color(0xFFFF6F00),
-  'ونسة': Color.fromARGB(255, 255, 0, 128),
-  'تسوق': Color(0xFF00C853),
-  'صحة': Color(0xFFD50000),
-  'أخرى': Color(0xFF616161),
+  'نقل': Color(0xFF0D47A1),
+  'طعام': Color(0xFFEF6C00),
+  'ونسة': Color(0xFF6A1B9A),
+  'تسوق': Color(0xFF1B5E20),
+  'صحة': Color(0xFFB71C1C),
+  'أخرى': Color(0xFF37474F),
 };
+
 
 
 

@@ -28,150 +28,85 @@ class _DialogBoxState extends State<DialogBox> {
 
   @override
   Widget build(BuildContext context) {
-    final width =  MediaQuery.sizeOf(context).width;
-    final height =  MediaQuery.sizeOf(context).height;
+  
     return AlertDialog(
-      backgroundColor: appBg,
-      elevation: 0,
-      content: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(1)
-        ),
-        width: width , 
-        height: height *0.7,
+  backgroundColor: appBg,
+  elevation: 0,
+  content: SizedBox(
 
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(1,10,1,10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              
-                children: [
-                  ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 40, 40, 40),   // button color
-                  foregroundColor: const Color.fromARGB(255, 255, 255, 255),  // text/icon color
-                  shape: RoundedRectangleBorder(
-                  
-                  borderRadius: BorderRadius.circular(100),
-                  ),
-                  elevation: 0,
-                  ),onPressed: widget.onCancel, child: Icon(Icons.close_rounded),
-                  ),
-                  
-
-                  Text(
-                    'سجل مصروف',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 28
-                    ),  
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,20,0,20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    'سجل مصروف',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 18
-                    ),  
-                  ),
-                  TextField(
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
-                  controller: widget.record,
-                  keyboardType: TextInputType.name,
-                  textDirection: TextDirection.rtl,
-                  decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(255, 43, 43, 43),
-                  border: OutlineInputBorder(),
-                  hintText: 'مثال: قهوة , مواصلات',
-                  hintTextDirection: TextDirection.rtl,
-                  hintStyle:TextStyle(
-                    color: const Color.fromARGB(255, 255, 255, 255)
-                  )
-                  
-                ),
-                
-              ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,20,0,20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    'المبلغ',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 18
-                    ),  
-                  ),
-                  TextField(
-                    style: TextStyle(
-                    color: Colors.white
-                  ),
-                  controller: widget.amount,
-                  keyboardType: TextInputType.number,
-                  textDirection: TextDirection.rtl,
-                  decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(255, 43, 43, 43),
-                  border: OutlineInputBorder(),
-                  hintText: '0 IQD',
-                  hintTextDirection: TextDirection.rtl,
-                  hintStyle:TextStyle(
-                    color: const Color.fromARGB(255, 255, 255, 255)
-                  )
-                ),
-                
-              ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,20,0,20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    'المبلغ',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 18
-                    ),  
-                  ),
-                  
-                ],
-              ),
-            ),
-            
-            Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    width: MediaQuery.of(context).size.width,
+    child: SingleChildScrollView(   
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF282828),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    elevation: 0,
+                  ),
+                  onPressed: widget.onCancel,
+                  child: const Icon(Icons.close_rounded , color: Colors.white,),
+                ),
+                const Text(
+                  'سجل مصروف',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ],
+            ),
+          ),
+
+          // الوصف
+          TextField(
+            controller: widget.record,
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              hintTextDirection: TextDirection.rtl,
+              filled: true,
+              fillColor: Color(0xFF2B2B2B),
+              hintText: 'مثال: قهوة , مواصلات',
+              hintStyle: TextStyle(color: Colors.white),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          // المبلغ
+          TextField(
+            controller: widget.amount,
+            keyboardType: TextInputType.number,
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              hintTextDirection: TextDirection.rtl,
+              filled: true,
+              fillColor: Color(0xFF2B2B2B),
+              hintText: '0 IQD',
+              hintStyle: TextStyle(color: Colors.white),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 15),
+
+          // الفئات
+          GridView.count(
+            crossAxisCount: 3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            shrinkWrap: true,           
+            physics: const NeverScrollableScrollPhysics(),
+            childAspectRatio: 2,
+            children: [
               Catogroies(
                 name: 'assets/car2.png',
                 textcatogry: 'نقل',
                 isSelected: selectedCategory == 'نقل',
-
                 onTap: () {
                   setState(() => selectedCategory = 'نقل');
                   widget.onCategorySelected('نقل');
@@ -186,31 +121,19 @@ class _DialogBoxState extends State<DialogBox> {
                   widget.onCategorySelected('طعام');
                 },
               ),
-
               Catogroies(
                 name: 'assets/film.png',
                 textcatogry: 'ونسة',
                 isSelected: selectedCategory == 'ونسة',
-
                 onTap: () {
                   setState(() => selectedCategory = 'ونسة');
                   widget.onCategorySelected('ونسة');
                 },
               ),
-                ],
-              ),
-              SizedBox(
-                width: 50,
-                height: 10,
-              )
-              ,Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
               Catogroies(
                 name: 'assets/menu.png',
                 textcatogry: 'أخرى',
                 isSelected: selectedCategory == 'أخرى',
-
                 onTap: () {
                   setState(() => selectedCategory = 'أخرى');
                   widget.onCategorySelected('أخرى');
@@ -220,7 +143,6 @@ class _DialogBoxState extends State<DialogBox> {
                 name: 'assets/shop.png',
                 textcatogry: 'تسوق',
                 isSelected: selectedCategory == 'تسوق',
-
                 onTap: () {
                   setState(() => selectedCategory = 'تسوق');
                   widget.onCategorySelected('تسوق');
@@ -230,35 +152,45 @@ class _DialogBoxState extends State<DialogBox> {
                 name: 'assets/healthcare.png',
                 textcatogry: 'صحة',
                 isSelected: selectedCategory == 'صحة',
-
                 onTap: () {
                   setState(() => selectedCategory = 'صحة');
                   widget.onCategorySelected('صحة');
                 },
               ),
-
-                ],
-              )
             ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15,20  ,15,20),
-              child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blueAccent,   // button color
-              foregroundColor: const Color.fromARGB(255, 255, 255, 255),  // text/icon color
-              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 18),
-              shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+          ),
+          const SizedBox(height: 20),
+
+          // زر الحفظ
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                  padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 0,
+                ),
+                onPressed: widget.onSave,
+                child: const Text(
+                  
+                  'سجل الآن',
+                  style: TextStyle(fontSize: 20,
+                  color: Colors.white
+                  ),
+                ),
               ),
-              elevation: 0,
-              ),onPressed: widget.onSave, child: Text('سجل الآن' , style: TextStyle(fontSize: 20),
-              ),
-              ),
-              ),
-          ]
-        )
-      )
-    );
+            ],
+          ),
+        ],
+      ),
+    ),
+  ),
+);
+
   }
 }

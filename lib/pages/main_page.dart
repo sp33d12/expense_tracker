@@ -60,6 +60,7 @@ class _MainPageState extends State<MainPage> {
             expenseTxt = 0;
             showChart = false;
             contain.clear();
+            categoryTotals.clear();
           });
         },
       ); 
@@ -115,7 +116,7 @@ class _MainPageState extends State<MainPage> {
               record.clear();
               amount.clear();
               Navigator.of(context).pop();
-              durationTime = 1500;
+              durationTime = 2000;
             });
           },
         );
@@ -136,21 +137,6 @@ class _MainPageState extends State<MainPage> {
         actionsPadding: EdgeInsets.all(1),
         backgroundColor: appBg,
         actions: [
-          /*
-          ElevatedButton( 
-            
-            style: ElevatedButton.styleFrom(
-              shape: CircleBorder(
-              ),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              shadowColor: Colors.transparent
-            ),
-            onPressed: toggleThem,
-            child:  Icon(Icons.wb_sunny_outlined , color: const Color.fromARGB(255, 255, 255, 255),),
-            
-            ),
-            */
           ElevatedButton( 
             
             style: ElevatedButton.styleFrom(

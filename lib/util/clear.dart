@@ -28,8 +28,8 @@ class Clear extends StatelessWidget {
             children: [
              ElevatedButton(
              style: ElevatedButton.styleFrom(
-             backgroundColor: Colors.white,   // button color
-             foregroundColor: Colors.black,  // text/icon color
+             backgroundColor: const Color(0xFF2979FF),   // button color
+             foregroundColor: Color.fromARGB(255, 255, 255, 255),  // text/icon color
              padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
              shape: RoundedRectangleBorder(
              borderRadius: BorderRadius.circular(10),
@@ -37,7 +37,7 @@ class Clear extends StatelessWidget {
              elevation: 0,
              ),
              onPressed: onClear, 
-             child: Text('متاكد؟؟' , style: TextStyle(
+             child: Text('متاكد؟' , style: TextStyle(
                fontSize: 20
              ),)),
         

@@ -67,7 +67,7 @@ class Contain extends StatelessWidget {
               ),
               Text('$moneyText IQD' , style: TextStyle(
               color:secColor,
-              fontSize: 18
+              fontSize: 15
               ),)
             ],),
           )

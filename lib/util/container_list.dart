@@ -25,7 +25,7 @@ class ContainList extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20,20,20,10),
       child: Container(
         decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 101, 101, 101),
+        color: const Color.fromARGB(255, 61, 61, 61),
         borderRadius: BorderRadius.circular(10)
         ),
         width: width,
@@ -37,7 +37,7 @@ class ContainList extends StatelessWidget {
             Row(
             children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0,0,150,0),
+              padding: const EdgeInsets.fromLTRB(20,0,100,0),
               child: Text('-$price  IQD' , style: TextStyle(color: priceColor,
               fontSize: 18),),
             ),
